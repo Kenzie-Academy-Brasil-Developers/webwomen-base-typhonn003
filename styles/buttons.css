@@ -1,0 +1,48 @@
+button {
+    cursor: pointer;
+    border-radius: var(--radius-default);
+}
+
+.btt-big-default {
+    padding: 12px 50px;
+    background-color: var(--color-brand-1);
+    border: 2px solid var(--color-brand-1);
+    color: var(--color-grey-6);
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: var(--text-2);
+}
+
+.btt-big-default:hover {
+    background-color: var(--color-brand-2);
+    border: 2px solid var(--color-brand-2);
+}
+
+.btt-little-default {
+    padding: 12px 28px;
+    background-color: var(--color-brand-1);
+    border: 2px solid var(--color-brand-1);
+    color: var(--color-grey-6);
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: var(--text-2);
+}
+
+.btt-little-default:hover {
+    background-color: var(--color-brand-2);
+    border: 2px solid var(--color-brand-2);
+}
+
+.btt-trash {
+    width: 44px;
+    height: 38px;
+    background-image: url(/assets/img/trash.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--color-grey-5);
+    border: none;
+}
+
+.btt-trash:hover {
+    background-color: var(--color-grey-3);
+}

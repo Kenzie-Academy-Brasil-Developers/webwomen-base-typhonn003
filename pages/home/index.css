@@ -1,1 +1,42 @@
-/* Desenvolva sua estilização aqui... */
+body {
+    background-color: var(--color-grey-5);
+}
+
+.page-header {
+    background-color: rgba(0, 0, 0, 0.500);
+    height: 800px;
+    background-image: url(/assets/img/header-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.header-container {
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.header-info-container {
+    flex-direction: column;
+    gap: 10px;
+    line-height: 32px;
+}
+
+.site-logo {
+    max-width: 100%;
+}
+
+.header-btt-container {
+    width: 100%;
+}
+
+.vacancie-container {
+    padding: 20px 0;
+}
+
+.selected-vacancy-container {
+    flex-direction: column;
+    gap: 20px;
+}

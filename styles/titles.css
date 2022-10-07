@@ -1,0 +1,32 @@
+.title1 {
+    font-size: var(--title-1);
+    font-weight: 600;
+}
+
+.title2 {
+    font-size: var(--title-2);
+    font-weight: 600;
+}
+
+.title3 {
+    font-size: var(--title-3);
+    font-weight: 600;
+}
+
+.title4 {
+    font-size: var(--title-4);
+    font-weight: 600;
+}
+
+.title5 {
+    font-size: var(--title-5);
+    font-weight: 600;
+}
+
+.titleWhite {
+    color: var(--color-grey-6);
+}
+
+.tittleBlack {
+    color: var(--color-grey-1);
+}

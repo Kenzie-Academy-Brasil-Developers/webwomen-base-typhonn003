@@ -1,23 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/globalStyles.css">
-    <link rel="stylesheet" href="index.css">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
-    <title>Webwomen</title>
-    <meta
-      name="description"
-      content="Está procurando oportunidades de estágio, emprego ou bolsas de estudo? 
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/globalStyles.css">
+  <link rel="stylesheet" href="/styles/buttons.css">
+  <link rel="stylesheet" href="/styles/texts.css">
+  <link rel="stylesheet" href="/styles/titles.css">
+  <link rel="stylesheet" href="/styles/cards.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+  <script defer src="jobsData.js"></script>
+  <script defer src="index.js"></script>
+  <title>Webwomen</title>
+  <meta name="description" content="Está procurando oportunidades de estágio, emprego ou bolsas de estudo? 
       Ou até mesmo oportunidades para atender eventos de tecnologia no Brasil 
-      e ao redor do mundo?"
-    />
+      e ao redor do mundo?" />
 </head>
+
 <body>
-    <main></main>
-    <script src="jobsData.js"></script>
-    <script src="index.js"></script>
+  <header class="page-header">
+    <div class="container header-container flex">
+      <div>
+        <img class="site-logo" src="/assets/img/logo.svg" alt="Webwomen logo">
+      </div>
+      <h1 class="title1 titleWhite">Lugar de mulher é onde ela quiser!</h1>
+      <div class="flex header-info-container">
+        <p class="text1 textWhite">Está procurando oportunidades de estágio, emprego ou bolsas de estudo?</p>
+        <p class="text1 textWhite">Ou até mesmo oportunidades para atender eventos de tecnologia no Brasil e ao redor do mundo?</p>
+        <p class="text1 textWhite"><strong>Confere aqui embaixo o que temos pra você!</strong></p>
+      </div>
+      <div class="header-btt-container"><button class="btt-big-default">Ir para seção das vagas</button></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2 class="title4 textBlack vacancie-container">Vagas</h2>
+
+      <ul id="vacancie-list">
+        <!-- <li class="vacancie-card flex">
+          <h2 class="title4 textBlack">Pessoa desenvolvedora front-end - React JS</h2>
+          <div class="flex vacancie-top">
+            <p class="text3 textBlack">Kenzie Academy</p>
+            <p class="text3 textBlack">Curitiba</p>
+          </div>
+          <p class="text2 textBlack">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste ea ex quisquam illo corrupti, officiis obcaecati labore, ipsa nihil libero earum nam sapiente quaerat cupiditate laborum id doloribus voluptas! Adipisci?</p>
+          <div class="flex vacancie-card-bottom">
+            <p class="modality text3 textBlack">Home office</p>
+            <p class="modality text3 textBlack">Home office</p>
+          </div>
+          <button class="btt-little-default" id="apply-for-job">Candidatar</button>
+        </li> -->
+      </ul>
+    </section>
+
+    <section class="flex selected-vacancy-container">
+      <h2>Vagas selecionadas</h2>
+
+      <ul class="flex selected-list" id="selected-list">
+
+        <li class="selected-vacancy-card">
+          <div class="flex selected-vacancie-top">
+            <h2 class="title5 titleBlack selected-vacancie-title">Pessoa desenvolvedora front-end - React JS</h2>
+            <button class="btt-trash">
+            </button>
+          </div>
+          <div class="flex selected-vacancie-bottom">
+            <p class="text3 textBlack">Kenzie Academy</p>
+            <p class="text3 textBlack">Curitiba</p>
+          </div>
+        </li>
+        
+      </ul>
+    </section>
+  </main>
 </body>
+
 </html>

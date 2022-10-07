@@ -1,0 +1,57 @@
+.vacancie-card {
+    background-color: var(--color-grey-6);
+    width: 100%;
+    flex-direction: column;
+    padding: 30px;
+    gap: 30px;
+    border-radius: var(--radius-default);
+    margin-bottom: 20px;
+}
+
+.vacancie-top,
+.selected-vacancie-bottom {
+    width: 100%;
+    gap: 30px;
+}
+
+.selected-vacancie-top {
+    width: 100%;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.vacancie-card-bottom {
+    gap: 20px;
+}
+
+.modality {
+    padding: 4px 12px;
+    background-color: var(--color-grey-3);
+    border-radius: var(--radius-default);
+    max-width: 140px;
+    text-align: center;
+}
+
+.selected-vacancy-card {
+    width: 100%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.250);
+}
+
+.selected-vacancie-title {
+    width: 70%;
+}
+
+.selected-list {
+    flex-direction: column;
+    gap: 20px;
+}
+
+.selected-vacancy-container {
+    background-color: var(--color-grey-6);
+    width: 100%;
+    flex-direction: column;
+    padding: 30px;
+    gap: 30px;
+    border-radius: var(--radius-default);
+    margin-bottom: 20px;
+}
