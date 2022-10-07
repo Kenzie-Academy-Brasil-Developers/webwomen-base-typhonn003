@@ -3,8 +3,8 @@ body {
 }
 
 .page-header {
-    background-color: rgba(0, 0, 0, 0.500);
     height: 800px;
+    width: 100%;
     background-image: url(/assets/img/header-bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;

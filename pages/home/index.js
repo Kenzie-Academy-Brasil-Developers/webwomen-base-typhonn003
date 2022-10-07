@@ -43,7 +43,7 @@ function vacancieCardTemplate(vacancieObject) {
     appplyButton.classList = "btt-little-default"
 
     vacancieCard.id = id
-    appplyButton.id = "apply-for-job"
+    appplyButton.id = `button_${id}`
 
     vacancieTitle.innerText = title
     boxTopEnterprise.innerText = enterprise
@@ -52,6 +52,30 @@ function vacancieCardTemplate(vacancieObject) {
     boxBottomModalities1.innerText = first
     boxBottomModalities2.innerText = second
     appplyButton.innerText = "Candidatar"
+
+    appplyButton.addEventListener("click", () => {
+
+        let notFoundItem = selectedVacancy.find((item) => item.id === id)
+
+        if (!notFoundItem) {
+
+            appplyButton.innerText = "Remover candidatura"
+
+            selectedVacancy.push(vacancieObject)
+            renderSelectedVacancy(selectedVacancy)
+        } else {
+
+            let selectedItem = document.getElementById(`card_${id}`)
+            let index = selectedVacancy.indexOf(vacancieObject)
+
+            selectedItem.remove()
+
+            selectedVacancy.splice(index, 1)
+            appplyButton.innerText = "Candidatar"
+
+            renderSelectedVacancy(selectedVacancy)
+        }
+    })
 
     vacancieBoxTop.append(boxTopEnterprise, boxTopLocation)
     vacancieBoxBottom.append(boxBottomModalities1, boxBottomModalities2)
@@ -110,11 +134,25 @@ function selectedCardTemplate(selectedObject) {
     vacancyEnterprise.classList = "text3 textBlack"
     vacancyLocation.classList = "text3 textBlack"
 
-    vacancyCard.id = id
+    vacancyCard.id = `card_${id}`
 
     vacancyTitle.innerText = title
     vacancyEnterprise.innerText = enterprise
     vacancyLocation.innerText = location
+
+    trashButton.addEventListener("click", (event) => {
+
+        let actualCard = event.path[2]
+        let index = selectedVacancy.indexOf(selectedObject)
+        let appplyButton = document.getElementById(`button_${id}`)
+
+        appplyButton.innerText = "Candidatar"
+
+        selectedVacancy.splice(index, 1)
+        actualCard.remove()
+
+        renderSelectedVacancy(selectedVacancy)
+    })
 
     vacancyBoxTop.append(vacancyTitle, trashButton)
     vacancyBoxBottom.append(vacancyEnterprise, vacancyLocation)
