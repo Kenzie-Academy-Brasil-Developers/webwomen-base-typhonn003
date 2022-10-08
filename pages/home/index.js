@@ -29,7 +29,8 @@ function vacancieCardTemplate(vacancieObject) {
     let vacancieBoxBottom = document.createElement("div")
     let boxBottomModalities1 = document.createElement("p")
     let boxBottomModalities2 = document.createElement("p")
-    let appplyButton = document.createElement("button")
+    let applyButton = document.createElement("button")
+    let contentBottom = document.createElement("div")
 
     vacancieCard.classList = "vacancie-card flex"
     vacancieTitle.classList = "title4 textBlack"
@@ -40,10 +41,11 @@ function vacancieCardTemplate(vacancieObject) {
     vacancieBoxBottom.classList = "flex vacancie-card-bottom"
     boxBottomModalities1.classList = "modality text3 textBlack"
     boxBottomModalities2.classList = "modality text3 textBlack"
-    appplyButton.classList = "btt-little-default"
+    applyButton.classList = "btt-little-default "
+    contentBottom.classList = "flex content-bottom"
 
     vacancieCard.id = id
-    appplyButton.id = `button_${id}`
+    applyButton.id = `button_${id}`
 
     vacancieTitle.innerText = title
     boxTopEnterprise.innerText = enterprise
@@ -51,18 +53,21 @@ function vacancieCardTemplate(vacancieObject) {
     vacancieDescription.innerText = descrition
     boxBottomModalities1.innerText = first
     boxBottomModalities2.innerText = second
-    appplyButton.innerText = "Candidatar"
+    applyButton.innerText = "Candidatar"
 
-    appplyButton.addEventListener("click", () => {
+    applyButton.addEventListener("click", () => {
 
         let notFoundItem = selectedVacancy.find((item) => item.id === id)
 
         if (!notFoundItem) {
 
-            appplyButton.innerText = "Remover candidatura"
+            applyButton.innerText = "Remover candidatura"
 
             selectedVacancy.push(vacancieObject)
             renderSelectedVacancy(selectedVacancy)
+
+            let jsonList = JSON.stringify(selectedVacancy)
+            localStorage.setItem("vacancy-list", jsonList)
         } else {
 
             let selectedItem = document.getElementById(`card_${id}`)
@@ -71,15 +76,19 @@ function vacancieCardTemplate(vacancieObject) {
             selectedItem.remove()
 
             selectedVacancy.splice(index, 1)
-            appplyButton.innerText = "Candidatar"
+            applyButton.innerText = "Candidatar"
 
             renderSelectedVacancy(selectedVacancy)
+
+            let jsonList = JSON.stringify(selectedVacancy)
+            localStorage.setItem("vacancy-list", jsonList)
         }
     })
 
     vacancieBoxTop.append(boxTopEnterprise, boxTopLocation)
     vacancieBoxBottom.append(boxBottomModalities1, boxBottomModalities2)
-    vacancieCard.append(vacancieTitle, vacancieBoxTop, vacancieDescription, vacancieBoxBottom, appplyButton)
+    contentBottom.append(vacancieBoxBottom, applyButton)
+    vacancieCard.append(vacancieTitle, vacancieBoxTop, vacancieDescription, contentBottom)
 
     return vacancieCard
 }
@@ -144,14 +153,17 @@ function selectedCardTemplate(selectedObject) {
 
         let actualCard = event.path[2]
         let index = selectedVacancy.indexOf(selectedObject)
-        let appplyButton = document.getElementById(`button_${id}`)
+        let applyButton = document.getElementById(`button_${id}`)
 
-        appplyButton.innerText = "Candidatar"
+        applyButton.innerText = "Candidatar"
 
         selectedVacancy.splice(index, 1)
         actualCard.remove()
 
         renderSelectedVacancy(selectedVacancy)
+
+        let jsonList = JSON.stringify(selectedVacancy)
+        localStorage.setItem("vacancy-list", jsonList)
     })
 
     vacancyBoxTop.append(vacancyTitle, trashButton)
@@ -160,3 +172,26 @@ function selectedCardTemplate(selectedObject) {
 
     return vacancyCard
 }
+
+function takeLocalStorage() {
+
+    let localStorageList = localStorage.getItem("vacancy-list")
+
+    if (localStorageList) {
+
+        let vacancyList = JSON.parse(localStorageList)
+
+        vacancyList.forEach((item) => {
+
+            let itemButton = document.getElementById(`button_${item.id}`)
+
+            itemButton.innerText = "Remover candidatura"
+
+            selectedVacancy.push(item)
+        })
+
+        renderSelectedVacancy(vacancyList)
+    }
+}
+
+takeLocalStorage()

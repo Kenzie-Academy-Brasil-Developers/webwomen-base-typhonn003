@@ -55,3 +55,8 @@
     border-radius: var(--radius-default);
     margin-bottom: 20px;
 }
+
+.content-bottom {
+    flex-direction: column;
+    gap: 20px;
+}

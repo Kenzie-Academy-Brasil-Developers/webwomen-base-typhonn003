@@ -11,6 +11,7 @@ button {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: var(--text-2);
+    border-radius: var(--radius-default);
 }
 
 .btt-big-default:hover {
@@ -26,6 +27,7 @@ button {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-size: var(--text-2);
+    border-radius: var(--radius-default);
 }
 
 .btt-little-default:hover {
